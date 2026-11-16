@@ -104,7 +104,7 @@ body {
 
 /* Navbar */
 .navbar {
-  height: 85px;
+  height: 85pxF;
   background: #FFFFFF;
   border-bottom: 1px solid #E2E8F0;
   padding: 0 30px;
@@ -183,6 +183,9 @@ body {
   min-width: 0;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+min-height: 0;
+  overflow: hidden;
 }
 
 .page-content {
@@ -620,4 +623,392 @@ body {
   .document-item {
     align-items: flex-start;
   }
+  .page-content:has(.chat-page) {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
 }
+}
+/* Theme Selector */
+
+.theme-selector {
+  position: relative;
+}
+
+.theme-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 220px;
+  padding: 14px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+}
+
+.theme-dropdown h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #1E293B;
+}
+
+.theme-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #334155;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.theme-option:hover {
+  background: #F1F5F9;
+}
+
+.theme-option.selected {
+  background: #EFF6FF;
+  color: #2563EB;
+  font-weight: 600;
+}
+
+.theme-color {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #CBD5E1;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.theme-option svg {
+  margin-left: auto;
+}
+
+/* =================================
+   DOCMIND THEME SYSTEM
+================================= */
+
+/* Light Theme */
+.app-shell.light {
+  --app-bg: #F8FAFC;
+  --sidebar-bg: #FFFFFF;
+  --panel-bg: #FFFFFF;
+  --input-bg: #F1F5F9;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --border-color: #E2E8F0;
+  --accent: #4F46E5;
+  --hover-bg: #EEF2FF;
+}
+
+/* Midnight Blue */
+.app-shell.midnight {
+  --app-bg: #0B1020;
+  --sidebar-bg: #111827;
+  --panel-bg: #19233A;
+  --input-bg: #263247;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --border-color: #334155;
+  --accent: #2563EB;
+  --hover-bg: #263247;
+}
+
+/* Emerald Green */
+.app-shell.emerald {
+  --app-bg: #0B1714;
+  --sidebar-bg: #10231D;
+  --panel-bg: #19352C;
+  --input-bg: #25463A;
+  --text-primary: #F0FDF4;
+  --text-secondary: #A7C9B7;
+  --border-color: #365B4B;
+  --accent: #059669;
+  --hover-bg: #25463A;
+}
+
+/* Royal Purple */
+.app-shell.purple {
+  --app-bg: #151022;
+  --sidebar-bg: #1D1630;
+  --panel-bg: #302447;
+  --input-bg: #40315B;
+  --text-primary: #FAF5FF;
+  --text-secondary: #C4B5D8;
+  --border-color: #51416B;
+  --accent: #8B5CF6;
+  --hover-bg: #40315B;
+}
+
+/* Warm Graphite */
+.app-shell.graphite {
+  --app-bg: #19130D;
+  --sidebar-bg: #241B12;
+  --panel-bg: #382C20;
+  --input-bg: #493A2A;
+  --text-primary: #FFF7ED;
+  --text-secondary: #D6BFA6;
+  --border-color: #5B4935;
+  --accent: #D97706;
+  --hover-bg: #493A2A;
+}
+
+/* Apply selected theme to main layout */
+
+.app-shell {
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+.app-shell .sidebar {
+  background: var(--sidebar-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.app-shell .navbar {
+  background: var(--panel-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.app-shell .navbar-left h2 {
+  color: var(--text-primary);
+}
+
+.app-shell .page-content {
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+.app-shell .navbar-search,
+.app-shell .icon-button {
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.app-shell .navbar-search input {
+  color: var(--text-primary);
+}
+
+.app-shell .theme-dropdown {
+  background: var(--panel-bg);
+  border-color: var(--border-color);
+}
+
+.app-shell .theme-dropdown h3 {
+  color: var(--text-primary);
+}
+
+.app-shell .theme-option {
+  color: var(--text-primary);
+}
+
+.app-shell .theme-option:hover {
+  background: var(--hover-bg);
+}
+
+.app-shell .theme-option.selected {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+.app-shell .profile-icon {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+/* ==========================================
+   DASHBOARD - ALL THEME SUPPORT
+========================================== */
+
+.app-shell .welcome-section h1,
+.app-shell .stat-card h2,
+.app-shell .recent-section h2 {
+  color: var(--text-primary);
+}
+
+.app-shell .welcome-section p,
+.app-shell .stat-card p,
+.app-shell .recent-section p {
+  color: var(--text-secondary);
+}
+
+.app-shell .stat-card,
+.app-shell .recent-section {
+  background: var(--panel-bg);
+  border-color: var(--border-color);
+}
+
+.app-shell .stat-icon {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+.app-shell .upload-btn {
+  background: var(--accent);
+  color: #FFFFFF;
+  border: none;
+}
+
+.app-shell .upload-btn:hover {
+  filter: brightness(0.9);
+}
+
+
+/* ==========================================
+   DOCUMENTS - ALL THEME SUPPORT
+========================================== */
+
+/* Page Header */
+
+.app-shell .documents-header h1 {
+  color: var(--text-primary);
+}
+
+.app-shell .documents-header p {
+  color: var(--text-secondary);
+}
+
+
+/* Upload Message */
+
+.app-shell .upload-message {
+  color: var(--accent);
+}
+
+
+/* Search and Filter */
+
+.app-shell .documents-toolbar input,
+.app-shell .documents-toolbar select {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.app-shell .documents-toolbar input::placeholder {
+  color: var(--text-secondary);
+}
+
+.app-shell .documents-toolbar input:focus,
+.app-shell .documents-toolbar select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+
+/* Empty State */
+
+.app-shell .documents-empty {
+  background: var(--panel-bg);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+
+/* Documents List */
+
+.app-shell .documents-list {
+  background: var(--panel-bg);
+  border-color: var(--border-color);
+}
+
+.app-shell .document-item {
+  border-bottom-color: var(--border-color);
+}
+
+.app-shell .document-info h4 {
+  color: var(--text-primary);
+}
+
+.app-shell .document-info p {
+  color: var(--text-secondary);
+}
+
+
+/* Document Icon */
+
+.app-shell .document-icon {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+
+/* Delete Button */
+
+.app-shell .document-item button {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+.app-shell .document-item button:hover {
+  filter: brightness(0.9);
+}
+
+
+/* Preview and Download Buttons */
+
+.app-shell .preview-btn {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+.app-shell .download-btn {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+
+/* PDF Preview Modal */
+
+.app-shell .preview-container {
+  background: var(--panel-bg);
+}
+
+.app-shell .preview-header {
+  background: var(--panel-bg);
+  border-bottom-color: var(--border-color);
+}
+
+.app-shell .preview-header h3 {
+  color: var(--text-primary);
+}
+
+.app-shell .close-preview {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+}
+
+
+/* ==========================================
+   EXISTING DARK MODE OVERRIDE FIX
+========================================== */
+
+.app-shell:not(.light) .documents-list,
+.app-shell:not(.light) .documents-empty,
+.app-shell:not(.light) .documents-toolbar input,
+.app-shell:not(.light) .documents-toolbar select {
+  background: var(--panel-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.app-shell:not(.light) .document-info h4,
+.app-shell:not(.light) .documents-header h1 {
+  color: var(--text-primary);
+}
+
+.app-shell:not(.light) .document-info p,
+.app-shell:not(.light) .documents-header p {
+  color: var(--text-secondary);
+}
+

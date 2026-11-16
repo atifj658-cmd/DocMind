@@ -1,0 +1,299 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chat-page {
+    padding: 20px;
+  }
+
+  .chat-container {
+    min-height: 380px;
+  }
+
+  .chat-input-area {
+    flex-direction: column;
+  }
+
+  .chat-input-area button {
+    width: 100%;
+  }
+}
+/* Main Chat Page */
+.chat-page {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px 30px;
+}
+
+
+/* Page Header */
+.chat-header {
+  margin-bottom: 30px;
+}
+
+.chat-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1E293B;
+}
+
+.chat-header p {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* Document Selection */
+.chat-document-select {
+  max-width: 400px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-document-select label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.chat-document-select select {
+  padding: 12px 14px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #334155;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Quick Actions */
+.chat-quick-actions {
+  margin-bottom: 10px;
+}
+
+.chat-quick-actions h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Chat Messages */
+.chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Message Input */
+.chat-input-area {
+  padding: 18px;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 13px 15px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input-area input:focus,
+.chat-document-select select:focus {
+  border-color: #6366F1;
+}
+
+.chat-input-area button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: #4F46E5;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.chat-input-area button:hover {
+  background: #4338CA;
+}
+
+
+
+/* Dark Mode - Chat Page */
+
+.app-shell.dark .chat-page {
+  background: #0B1020;
+  color: #F8FAFC;
+}
+
+.app-shell.dark .chat-header h1 {
+  color: #F8FAFC;
+}
+
+.app-shell.dark .chat-header p {
+  color: #94A3B8;
+}
+
+.app-shell.dark .chat-quick-actions h3 {
+  color: #F8FAFC;
+}
+
+.app-shell.dark .chat-document-select label {
+  color: #F8FAFC;
+}
+
+.app-shell.dark .chat-document-select select {
+  background: #19233A;
+  border-color: #334155;
+  color: #F8FAFC;
+}
+
+.app-shell.dark .chat-container {
+  background: #19233A;
+  border-color: #334155;
+}
+
+.app-shell.dark .chat-messages {
+  color: #94A3B8;
+}
+
+.app-shell.dark .chat-input-area {
+  border-color: #334155;
+}
+
+.app-shell.dark .chat-input-area input {
+  background: #263247;
+  border-color: #334155;
+  color: #F8FAFC;
+}
+
+.app-shell.dark .chat-input-area input::placeholder {
+  color: #94A3B8;
+}
+/* Quick Action Buttons */
+.quick-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.quick-action-buttons button {
+  padding: 9px 16px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-action-buttons button:hover {
+  background: #EFF6FF;
+  border-color: #3B82F6;
+  color: #2563EB;
+}
+
+/* Selected Button */
+.quick-action-buttons button.active {
+  background: #2563EB;
+  border-color: #2563EB;
+  color: #FFFFFF;
+}
+
+/* Dark Mode */
+.app-shell.dark .quick-action-buttons button {
+  background: #263247;
+  border-color: #475569;
+  color: #F8FAFC;
+}
+
+.app-shell.dark .quick-action-buttons button:hover {
+  background: #334155;
+  border-color: #60A5FA;
+}
+
+.app-shell.dark .quick-action-buttons button.active {
+  background: #2563EB;
+  border-color: #2563EB;
+  color: #FFFFFF;
+}
+
+/* Chat Page - All Theme Support */
+
+.app-shell .chat-page {
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+.app-shell .chat-header h1,
+.app-shell .chat-quick-actions h3,
+.app-shell .chat-document-select label {
+  color: var(--text-primary);
+}
+
+.app-shell .chat-header p {
+  color: var(--text-secondary);
+}
+
+.app-shell .chat-document-select select,
+.app-shell .chat-input-area input {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.app-shell .chat-container {
+  background: var(--panel-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.app-shell .chat-input-area {
+  border-color: var(--border-color);
+}
+
+.app-shell .chat-input-area input::placeholder {
+  color: var(--text-secondary);
+}
+
+.app-shell .chat-input-area button {
+  background: var(--accent);
+}
+
+.app-shell .quick-action-buttons button {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.app-shell .quick-action-buttons button:hover {
+  background: var(--hover-bg);
+  border-color: var(--accent);
+}
+
+.app-shell .quick-action-buttons button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}

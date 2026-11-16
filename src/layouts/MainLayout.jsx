@@ -5,22 +5,18 @@ import Navbar from "../components/Navbar";
 
 function MainLayout({ children }) {
 
-  const [mode, setMode] = useState("light");
-
-  const toggleMode = () => {
-    setMode(mode === "light" ? "dark" : "light");
-  };
+  const [theme, setTheme] = useState("light");
 
   return (
-    <div className={`app-shell ${mode}`}>
+    <div className={`app-shell ${theme}`}>
 
       <Sidebar />
 
       <div className="main-content">
 
         <Navbar
-          mode={mode}
-          toggleMode={toggleMode}
+          theme={theme}
+          setTheme={setTheme}
         />
 
         <main className="page-content">

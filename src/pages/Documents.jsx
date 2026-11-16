@@ -51,7 +51,7 @@ function Documents() {
     // Upload result ke mutabiq feedback dena
     if (uniqueFiles.length === 0) {
       setFeedbackMessage(
-        "Koi new valid file add nahi hui. Duplicate ya unsupported files skip kar di gayi hain."
+        "File Already Exists."
       );
     } else if (uniqueFiles.length < selectedFiles.length) {
       setFeedbackMessage(
