@@ -1,23 +1,9 @@
-/* Responsive Design */
-@media (max-width: 768px) {
-  .chat-page {
-    padding: 20px;
-  }
 
-  .chat-container {
-    min-height: 380px;
-  }
+/* ==============================
+   Main Chat Page
+================================= */
 
-  .chat-input-area {
-    flex-direction: column;
-  }
-
-  .chat-input-area button {
-    width: 100%;
-  }
-}
-/* Main Chat Page */
-.chat-page {
+.app-shell .chat-page {
   flex: 1;
   min-height: 0;
   height: auto;
@@ -25,62 +11,79 @@
   flex-direction: column;
   overflow: hidden;
   padding: 20px 30px;
+  background: var(--app-bg);
+  color: var(--text-primary);
+  box-sizing: border-box;
 }
 
-
 /* Page Header */
+
 .chat-header {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
 }
 
 .chat-header h1 {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #1E293B;
+  color: var(--text-primary);
 }
 
 .chat-header p {
   font-size: 14px;
-  color: #64748B;
+  color: var(--text-secondary);
 }
 
-/* Document Selection */
-.chat-document-select {
-  max-width: 400px;
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+/* ==============================
+   Quick Actions
+================================= */
 
-.chat-document-select label {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.chat-document-select select {
-  padding: 12px 14px;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  background: #FFFFFF;
-  color: #334155;
-  outline: none;
-  font-size: 14px;
-}
-
-/* Quick Actions */
 .chat-quick-actions {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 .chat-quick-actions h3 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
 }
 
-/* Chat Container */
+.quick-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quick-action-buttons button {
+  padding: 9px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-action-buttons button:hover {
+  background: var(--hover-bg);
+  border-color: var(--accent);
+}
+
+.quick-action-buttons button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+
+/* ==============================
+   Chat Container
+================================= */
+
 .chat-container {
   flex: 1;
   min-height: 0;
@@ -88,212 +91,420 @@
   flex-direction: column;
   overflow: hidden;
   padding: 20px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-primary);
+  box-sizing: border-box;
 }
 
 /* Chat Messages */
+
 .chat-messages {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-}
-
-/* Message Input */
-.chat-input-area {
-  padding: 18px;
-  border-top: 1px solid #E2E8F0;
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 14px;
+  padding: 5px;
 }
 
-.chat-input-area input {
+.chat-empty-state {
   flex: 1;
-  padding: 13px 15px;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.chat-empty-state i {
+  font-size: 35px;
+}
+
+.chat-empty-state p {
   font-size: 14px;
 }
 
-.chat-input-area input:focus,
-.chat-document-select select:focus {
-  border-color: #6366F1;
+/* User Messages */
+
+.user-message {
+  align-self: flex-end;
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 12px 12px 2px 12px;
+  background: var(--accent);
+  color: #FFFFFF;
+  overflow-wrap: anywhere;
 }
 
-.chat-input-area button {
-  padding: 12px 24px;
+.user-message p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.message-attachments {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.message-attachments span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* ==============================
+   Chat Composer
+================================= */
+
+.chat-composer {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 12px;
+}
+
+/* Attachment Preview */
+
+.attachment-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.attachment-card {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  max-width: 220px;
+  padding: 9px 11px;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.attachment-card > i {
+  color: var(--accent);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.attachment-card span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.attachment-card button {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 3px;
+}
+
+.attachment-card button:hover {
+  color: #EF4444;
+}
+
+/* Upload Status */
+
+.upload-status {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Message Input */
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--input-bg);
+}
+
+.chat-input-area > input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 5px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.chat-input-area > input::placeholder {
+  color: var(--text-secondary);
+}
+
+.chat-input-area > input:focus {
+  border: none;
+}
+
+/* Send Button */
+
+.chat-input-area > button {
+  padding: 11px 22px;
   border: none;
   border-radius: 8px;
-  background: #4F46E5;
+  background: var(--accent);
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.chat-input-area button:hover {
-  background: #4338CA;
+.chat-input-area > button:hover {
+  opacity: 0.88;
 }
 
+/* ==============================
+   Attachment Menu
+================================= */
 
-
-/* Dark Mode - Chat Page */
-
-.app-shell.dark .chat-page {
-  background: #0B1020;
-  color: #F8FAFC;
+.attachment-menu-wrapper {
+  position: relative;
+  flex-shrink: 0;
 }
 
-.app-shell.dark .chat-header h1 {
-  color: #F8FAFC;
-}
-
-.app-shell.dark .chat-header p {
-  color: #94A3B8;
-}
-
-.app-shell.dark .chat-quick-actions h3 {
-  color: #F8FAFC;
-}
-
-.app-shell.dark .chat-document-select label {
-  color: #F8FAFC;
-}
-
-.app-shell.dark .chat-document-select select {
-  background: #19233A;
-  border-color: #334155;
-  color: #F8FAFC;
-}
-
-.app-shell.dark .chat-container {
-  background: #19233A;
-  border-color: #334155;
-}
-
-.app-shell.dark .chat-messages {
-  color: #94A3B8;
-}
-
-.app-shell.dark .chat-input-area {
-  border-color: #334155;
-}
-
-.app-shell.dark .chat-input-area input {
-  background: #263247;
-  border-color: #334155;
-  color: #F8FAFC;
-}
-
-.app-shell.dark .chat-input-area input::placeholder {
-  color: #94A3B8;
-}
-/* Quick Action Buttons */
-.quick-action-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.quick-action-buttons button {
-  padding: 9px 16px;
-  border: 1px solid #CBD5E1;
+.attachment-icon-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
   border-radius: 8px;
-  background: #FFFFFF;
-  color: #334155;
-  font-size: 14px;
-  font-weight: 500;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 18px;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.quick-action-buttons button:hover {
-  background: #EFF6FF;
-  border-color: #3B82F6;
-  color: #2563EB;
-}
-
-/* Selected Button */
-.quick-action-buttons button.active {
-  background: #2563EB;
-  border-color: #2563EB;
-  color: #FFFFFF;
-}
-
-/* Dark Mode */
-.app-shell.dark .quick-action-buttons button {
-  background: #263247;
-  border-color: #475569;
-  color: #F8FAFC;
-}
-
-.app-shell.dark .quick-action-buttons button:hover {
-  background: #334155;
-  border-color: #60A5FA;
-}
-
-.app-shell.dark .quick-action-buttons button.active {
-  background: #2563EB;
-  border-color: #2563EB;
-  color: #FFFFFF;
-}
-
-/* Chat Page - All Theme Support */
-
-.app-shell .chat-page {
-  background: var(--app-bg);
-  color: var(--text-primary);
-}
-
-.app-shell .chat-header h1,
-.app-shell .chat-quick-actions h3,
-.app-shell .chat-document-select label {
-  color: var(--text-primary);
-}
-
-.app-shell .chat-header p {
-  color: var(--text-secondary);
-}
-
-.app-shell .chat-document-select select,
-.app-shell .chat-input-area input {
-  background: var(--input-bg);
-  color: var(--text-primary);
-  border-color: var(--border-color);
-}
-
-.app-shell .chat-container {
-  background: var(--panel-bg);
-  border-color: var(--border-color);
-  color: var(--text-primary);
-}
-
-.app-shell .chat-input-area {
-  border-color: var(--border-color);
-}
-
-.app-shell .chat-input-area input::placeholder {
-  color: var(--text-secondary);
-}
-
-.app-shell .chat-input-area button {
-  background: var(--accent);
-}
-
-.app-shell .quick-action-buttons button {
-  background: var(--input-bg);
-  color: var(--text-primary);
-  border-color: var(--border-color);
-}
-
-.app-shell .quick-action-buttons button:hover {
+.attachment-icon-btn:hover {
   background: var(--hover-bg);
-  border-color: var(--accent);
+  color: var(--accent);
 }
 
-.app-shell .quick-action-buttons button.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #FFFFFF;
+.attachment-menu {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  z-index: 20;
+  width: 225px;
+  padding: 7px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.attachment-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.attachment-menu-item:hover {
+  background: var(--hover-bg);
+}
+
+.attachment-menu-item i {
+  color: var(--accent);
+}
+
+/* ==============================
+   My Documents Dropdown
+================================= */
+
+.document-dropdown {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  z-index: 15;
+  width: min(320px, 100%);
+  max-height: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  overflow: hidden;
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.document-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.document-dropdown-header button {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.document-dropdown-list {
+  overflow-y: auto;
+  padding: 7px 0;
+}
+
+.document-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 5px;
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.document-option input {
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.document-option input:disabled {
+  cursor: not-allowed;
+}
+
+.document-option:hover {
+  background: var(--hover-bg);
+}
+
+.no-documents,
+.document-limit {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding: 8px 0;
+}
+
+.document-limit {
+  border-top: 1px solid var(--border-color);
+  margin: 0;
+}
+
+/* ==============================
+   Responsive Design
+================================= */
+
+@media (max-width: 768px) {
+  .app-shell .chat-page {
+    padding: 16px;
+  }
+
+  .chat-header {
+    margin-bottom: 16px;
+  }
+
+  .chat-header h1 {
+    font-size: 22px;
+  }
+
+  .chat-container {
+    padding: 12px;
+  }
+
+  .quick-action-buttons {
+    gap: 8px;
+  }
+
+  .quick-action-buttons button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .user-message {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-input-area {
+    gap: 5px;
+    padding: 7px;
+  }
+
+.chat-input-area .attachment-icon-btn {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  background: var(--panel-bg);
+  color: var(--text-primary);
+
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
+}
+
+.chat-input-area .attachment-icon-btn svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+  stroke: currentColor;
+}
+
+.chat-input-area .attachment-icon-btn:hover {
+  background: var(--hover-bg);
+  color: var(--accent);
+}
+
+
+  .chat-input-area > button {
+    padding: 10px 13px;
+  }
+
+  .chat-input-area > input {
+    font-size: 13px;
+  }
+
+  .attachment-card {
+    max-width: 100%;
+  }
 }

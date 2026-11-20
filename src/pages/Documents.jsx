@@ -1,8 +1,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 
-function Documents() {
-  const [files, setFiles] = useState([]);
+function Documents({ files, setFiles }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [feedbackMessage, setFeedbackMessage] = useState("");
@@ -46,7 +45,14 @@ function Documents() {
     });
 
     // Sirf unique files ko existing list mein add karna
-    setFiles((prev) => [...prev, ...uniqueFiles]);
+   const newFiles = uniqueFiles.map((file) => ({
+  id: crypto.randomUUID(),
+  file: file,
+  name: file.name,
+  size: file.size
+}));
+
+setFiles((prev) => [...prev, ...newFiles]);
 
     // Upload result ke mutabiq feedback dena
     if (uniqueFiles.length === 0) {
@@ -68,16 +74,13 @@ function Documents() {
   // =====================================
   // 2. Delete Document
   // =====================================
+const handleDelete = (idToDelete) => {
+  setFiles((prev) =>
+    prev.filter((file) => file.id !== idToDelete)
+  );
 
-  const handleDelete = (indexToDelete) => {
-    // Filter ke zariye selected index wali file remove karna
-    setFiles((prev) =>
-      prev.filter((file, index) => index !== indexToDelete)
-    );
-
-    setFeedbackMessage("Document deleted successfully!");
-  };
-
+  setFeedbackMessage("Document deleted successfully!");
+};
   // =====================================
   // 3. Format File Size
   // =====================================
@@ -136,7 +139,7 @@ function Documents() {
   const previewUrl = useMemo(() => {
   if (!previewFile) return "";
 
-  return URL.createObjectURL(previewFile);
+  return URL.createObjectURL(previewFile.file);
 }, [previewFile]);
 
 useEffect(() => {
@@ -152,7 +155,7 @@ useEffect(() => {
 
   const handleDownload = (file) => {
     // File ka temporary download URL banana
-    const url = URL.createObjectURL(file);
+    const url = URL.createObjectURL(file.file);
 
     // Download ke liye temporary link create karna
     const link = document.createElement("a");
@@ -240,11 +243,10 @@ useEffect(() => {
         ) : (
           filteredFiles.map((file) => {
             // Original array mein file ka index find karna
-            // Taake search/filter ke baad bhi correct file delete ho
-            const originalIndex = files.indexOf(file);
+
 
             return (
-              <div className="document-item" key={originalIndex}>
+  <div className="document-item" key={file.id}>
 
                 {/* Document Information */}
                 <div className="document-info">
@@ -278,9 +280,9 @@ useEffect(() => {
                     Download
                   </button>
 
-                  <button onClick={() => handleDelete(originalIndex)}>
-                    Delete
-                  </button>
+<button onClick={() => handleDelete(file.id)}>
+  Delete
+</button>
 
                 </div>
               </div>

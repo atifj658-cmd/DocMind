@@ -191,9 +191,19 @@ min-height: 0;
 .page-content {
   padding: 30px;
   flex: 1;
-  background: #F8FAFC;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  background: var(--app-bg);
+  color: var(--text-primary);
+  overflow-y: auto;
+  overflow-x: hidden;
+}.page-content:has(.chat-page) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
 }
-
 /* Basic Dark Theme */
 
 .app-shell.dark {
@@ -623,12 +633,13 @@ min-height: 0;
   .document-item {
     align-items: flex-start;
   }
+
+}
   .page-content:has(.chat-page) {
   display: flex;
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
-}
 }
 /* Theme Selector */
 
